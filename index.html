@@ -1,0 +1,473 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<script src="https://cdn.jsdelivr.net/gh/EsotericSoftware/spine-runtimes/spine-ts/build/spine-webgl.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body,
+		html {
+			height: 100%
+		}
+
+		canvas {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<center>
+		<div style="position: fixed; top: 0; width: 100%">
+			<label for="skeletonList">妖精</label><select id="skeletonList"></select>
+			<label for="animationList">动画</label><select id="animationList"></select>
+			<label for="skinList">皮肤</label><select id="skinList"></select>
+			<label for="debug">调试</label><input type="checkbox" id="debug">
+		</div>
+	</center>
+	<script>
+		const fairys = [
+				{name: "1.多多洛·书", id: "100000", type: "binary", ext: "skel"},
+				{name: "2.多多洛·书", id: "100010", type: "binary", ext: "skel"},
+				{name: "3.蚕娘", id: "100001", type: "binary", ext: "skel"},
+				{name: "4.蚕娘", id: "100011", type: "binary", ext: "skel"},
+				{name: "5.黏黏·风", id: "100020", type: "binary", ext: "skel"},
+				{name: "6.黏黏·风", id: "100030", type: "binary", ext: "skel"},
+				{name: "7.黏黏·地", id: "100021", type: "binary", ext: "skel"},
+				{name: "8.黏黏·地", id: "100031", type: "binary", ext: "skel"},
+				{name: "9.黏黏·水", id: "100022", type: "binary", ext: "skel"},
+				{name: "10.黏黏·水", id: "100032", type: "binary", ext: "skel"},
+				{name: "11.黏黏·火", id: "100023", type: "binary", ext: "skel"},
+				{name: "12.黏黏·火", id: "100033", type: "binary", ext: "skel"},
+				{name: "13.多多洛·笔", id: "100002", type: "binary", ext: "skel"},
+				{name: "14.多多洛·笔", id: "100012", type: "binary", ext: "skel"},
+				{name: "15.拉", id: "100003", type: "binary", ext: "skel"},
+				{name: "16.拉", id: "100013", type: "binary", ext: "skel"},
+				{name: "17.怖鲁", id: "100024", type: "binary", ext: "skel"},
+				{name: "18.怖鲁", id: "100034", type: "binary", ext: "skel"},
+				{name: "19.怖力", id: "100025", type: "binary", ext: "skel"},
+				{name: "20.怖力", id: "100035", type: "binary", ext: "skel"},
+				{name: "21.怖弗", id: "100026", type: "binary", ext: "skel"},
+				{name: "22.怖弗", id: "100036", type: "binary", ext: "skel"},
+				{name: "23.卢斯图", id: "100004", type: "binary", ext: "skel"},
+				{name: "24.卢斯图", id: "100014", type: "binary", ext: "skel"},
+				{name: "25.迪昂", id: "100005", type: "binary", ext: "skel"},
+				{name: "26.迪昂", id: "100015", type: "binary", ext: "skel"},
+				{name: "27.多多洛·墨", id: "100006", type: "binary", ext: "skel"},
+				{name: "28.多多洛·墨", id: "100016", type: "binary", ext: "skel"},
+				{name: "29.卡萝尔", id: "100027", type: "binary", ext: "skel"},
+				{name: "30.卡萝尔", id: "100037", type: "binary", ext: "skel"},
+				{name: "31.索菲亚", id: "100007", type: "binary", ext: "skel"},
+				{name: "32.索菲亚", id: "100017", type: "binary", ext: "skel"},
+				{name: "33.贝蒂", id: "100028", type: "binary", ext: "skel"},
+				{name: "34.贝蒂", id: "100038", type: "binary", ext: "skel"},
+				{name: "35.俾斯麦", id: "100008", type: "binary", ext: "skel"},
+				{name: "36.俾斯麦", id: "100018", type: "binary", ext: "skel"},
+				{name: "37.维多利亚", id: "100029", type: "binary", ext: "skel"},
+				{name: "38.维多利亚", id: "100039", type: "binary", ext: "skel"},
+				{name: "39.阿波罗", id: "100009", type: "binary", ext: "skel"},
+				{name: "40.阿波罗", id: "100019", type: "binary", ext: "skel"},
+				{name: "41.金金", id: "100040", type: "binary", ext: "skel"},
+				{name: "52.金金", id: "100041", type: "binary", ext: "skel"},
+				{name: "43.玛丽", id: "100042", type: "binary", ext: "skel"},
+				{name: "44.玛丽", id: "100043", type: "binary", ext: "skel"},
+				{name: "45.克林", id: "100044", type: "binary", ext: "skel"},
+				{name: "46.克林", id: "100045", type: "binary", ext: "skel"},
+				{name: "47.望", id: "100046", type: "binary", ext: "skel"},
+				{name: "48.望", id: "100047", type: "binary", ext: "skel"},
+				{name: "49.塔兰特", id: "100048", type: "binary", ext: "skel"},
+				{name: "50.塔兰特", id: "100049", type: "binary", ext: "skel"},
+				{name: "51.风莱姆", id: "100050", type: "binary", ext: "skel"},
+				{name: "52.风莱姆", id: "100051", type: "binary", ext: "skel"},
+				{name: "53.石莱姆", id: "100052", type: "binary", ext: "skel"},
+				{name: "54.石莱姆", id: "100053", type: "binary", ext: "skel"},
+				{name: "55.水莱姆", id: "100054", type: "binary", ext: "skel"},
+				{name: "56.水莱姆", id: "100055", type: "binary", ext: "skel"},
+				{name: "57.火莱姆", id: "100056", type: "binary", ext: "skel"},
+				{name: "58.火莱姆", id: "100057", type: "binary", ext: "skel"},
+				{name: "59.富岳", id: "100058", type: "binary", ext: "skel"},
+				{name: "60.富岳", id: "100059", type: "binary", ext: "skel"},
+				{name: "61.不二", id: "100060", type: "binary", ext: "skel"},
+				{name: "62.不二", id: "100061", type: "binary", ext: "skel"},
+				{name: "63.斯文", id: "100062", type: "binary", ext: "skel"},
+				{name: "64.斯文", id: "100063", type: "binary", ext: "skel"},
+				{name: "65.缪恩", id: "100064", type: "binary", ext: "skel"},
+				{name: "66.缪恩", id: "100065", type: "binary", ext: "skel"},
+				{name: "67.灰", id: "100066", type: "binary", ext: "skel"},
+				{name: "68.灰", id: "100067", type: "binary", ext: "skel"},
+				{name: "69.阿拉汀", id: "100068", type: "binary", ext: "skel"},
+				{name: "70.阿拉汀", id: "100069", type: "binary", ext: "skel"},
+				{name: "71.乌拉", id: "100070", type: "binary", ext: "skel"},
+				{name: "72.乌拉", id: "100071", type: "binary", ext: "skel"},
+				{name: "73.红", id: "100072", type: "binary", ext: "skel"},
+				{name: "74.红", id: "100073", type: "binary", ext: "skel"},
+				{name: "75.莎缪", id: "100074", type: "binary", ext: "skel"},
+				{name: "76.莎缪", id: "100075", type: "binary", ext: "skel"},
+				{name: "77.莎莉", id: "100076", type: "binary", ext: "skel"},
+				{name: "78.莎莉", id: "100077", type: "binary", ext: "skel"},
+				{name: "79.莎希", id: "100078", type: "binary", ext: "skel"},
+				{name: "80.莎希", id: "100079", type: "binary", ext: "skel"},
+				{name: "81.莎恩", id: "100080", type: "binary", ext: "skel"},
+				{name: "82.莎恩", id: "100081", type: "binary", ext: "skel"},
+				{name: "83.罐罐·风", id: "100082", type: "binary", ext: "skel"},
+				{name: "84.罐罐·风", id: "100083", type: "binary", ext: "skel"},
+				{name: "85.罐罐·水", id: "100084", type: "binary", ext: "skel"},
+				{name: "86.罐罐·水", id: "100085", type: "binary", ext: "skel"},
+				{name: "87.罐罐·火", id: "100086", type: "binary", ext: "skel"},
+				{name: "88.罐罐·火", id: "100087", type: "binary", ext: "skel"},
+				{name: "89.竹", id: "100088", type: "binary", ext: "skel"},
+				{name: "90.竹", id: "100089", type: "binary", ext: "skel"},
+				{name: "91.阿芙罗拉", id: "100090", type: "binary", ext: "skel"},
+				{name: "92.阿芙罗拉", id: "100091", type: "binary", ext: "skel"},
+				{name: "93.沙音", id: "100092", type: "binary", ext: "skel"},
+				{name: "94.沙音", id: "100093", type: "binary", ext: "skel"},
+				{name: "95.多多洛·印", id: "100094", type: "binary", ext: "skel"},
+				{name: "96.多多洛·印", id: "100095", type: "binary", ext: "skel"},
+				{name: "97.高野", id: "100096", type: "binary", ext: "skel"},
+				{name: "98.高野", id: "100097", type: "binary", ext: "skel"},
+				{name: "99.奥克索", id: "100098", type: "binary", ext: "skel"},
+				{name: "100.奥克索", id: "100099", type: "binary", ext: "skel"},
+				{name: "101.塔利亚", id: "100100", type: "binary", ext: "skel"},
+				{name: "102.塔利亚", id: "100101", type: "binary", ext: "skel"},
+				{name: "103.希罗", id: "100102", type: "binary", ext: "skel"},
+				{name: "104.希罗", id: "100103", type: "binary", ext: "skel"},
+				{name: "105.宇迦", id: "100104", type: "binary", ext: "skel"},
+				{name: "106.宇迦", id: "100105", type: "binary", ext: "skel"},
+				{name: "107.刻刻", id: "100106", type: "binary", ext: "skel"},
+				{name: "108.刻刻", id: "100107", type: "binary", ext: "skel"},
+				{name: "109.希", id: "100108", type: "binary", ext: "skel"},
+				{name: "110.希", id: "100109", type: "binary", ext: "skel"},
+				{name: "111.盖斯", id: "100110", type: "binary", ext: "skel"},
+				{name: "112.盖斯", id: "100111", type: "binary", ext: "skel"},
+				{name: "113.盖亚", id: "100112", type: "binary", ext: "skel"},
+				{name: "114.盖亚", id: "100113", type: "binary", ext: "skel"},
+				{name: "115.盖茹", id: "100114", type: "binary", ext: "skel"},
+				{name: "116.盖茹", id: "100115", type: "binary", ext: "skel"},
+				{name: "117.盖迦", id: "100116", type: "binary", ext: "skel"},
+				{name: "118.盖迦", id: "100117", type: "binary", ext: "skel"},
+				{name: "119.蒸美", id: "100118", type: "binary", ext: "skel"},
+				{name: "120.蒸美", id: "100119", type: "binary", ext: "skel"},
+				{name: "121.西索", id: "100120", type: "binary", ext: "skel"},
+				{name: "122.西索", id: "100121", type: "binary", ext: "skel"},
+				{name: "123.卢修斯", id: "100122", type: "binary", ext: "skel"},
+				{name: "124.卢修斯", id: "100123", type: "binary", ext: "skel"},
+				{name: "125.捷德", id: "100124", type: "binary", ext: "skel"},
+				{name: "126.捷德", id: "100125", type: "binary", ext: "skel"},
+				{name: "127.希瓦", id: "100126", type: "binary", ext: "skel"},
+				{name: "128.希瓦", id: "100127", type: "binary", ext: "skel"},
+				{name: "129.姜尚", id: "100128", type: "binary", ext: "skel"},
+				{name: "130.姜尚", id: "100129", type: "binary", ext: "skel"},
+				{name: "131.恩奇都", id: "100130", type: "binary", ext: "skel"},
+				{name: "132.恩奇都", id: "100131", type: "binary", ext: "skel"},
+				{name: "133.阿萨莫斯", id: "100132", type: "binary", ext: "skel"},
+				{name: "134.阿萨莫斯", id: "100133", type: "binary", ext: "skel"},
+				{name: "135.珀耳塞拉", id: "100134", type: "binary", ext: "skel"},
+				{name: "136.珀耳塞拉", id: "100135", type: "binary", ext: "skel"},
+				{name: "137.乔尼亚斯", id: "100136", type: "text", ext: "json"},
+				{name: "138.乔尼亚斯", id: "100137", type: "binary", ext: "skel"},
+				{name: "139.烛", id: "100138", type: "binary", ext: "skel"},
+				{name: "140.烛", id: "100139", type: "binary", ext: "skel"},
+				{name: "141.亓", id: "100140", type: "binary", ext: "skel"},
+				{name: "142.亓", id: "100141", type: "binary", ext: "skel"},
+				{name: "143.露露姆", id: "100142", type: "binary", ext: "skel"},
+				{name: "144.露露姆", id: "100143", type: "binary", ext: "skel"},
+				{name: "145.露西", id: "100144", type: "binary", ext: "skel"},
+				{name: "146.露西", id: "100145", type: "binary", ext: "skel"},
+				{name: "147.湄拉", id: "100146", type: "binary", ext: "skel"},
+				{name: "148.湄拉", id: "100147", type: "binary", ext: "skel"},
+				{name: "149.杆杆", id: "100148", type: "binary", ext: "skel"},
+				{name: "150.杆杆", id: "100149", type: "binary", ext: "skel"},
+				{name: "151.阿佩吉", id: "100150", type: "binary", ext: "skel"},
+				{name: "152.阿佩吉", id: "100151", type: "binary", ext: "skel"},
+				{name: "153.斑斑", id: "100152", type: "binary", ext: "skel"},
+				{name: "154.斑斑", id: "100153", type: "binary", ext: "skel"},
+				{name: "155.昂塞", id: "100154", type: "binary", ext: "skel"},
+				{name: "156.昂塞", id: "100155", type: "binary", ext: "skel"},
+				{name: "157.拉结尔", id: "100156", type: "binary", ext: "skel"},
+				{name: "158.拉结尔", id: "100157", type: "binary", ext: "skel"},
+				{name: "159.雅典娜", id: "100158", type: "binary", ext: "skel"},
+				{name: "160.雅典娜", id: "100159", type: "binary", ext: "skel"},
+				{name: "161.德墨忒尔", id: "100160", type: "binary", ext: "skel"},
+				{name: "162.德墨忒尔", id: "100161", type: "binary", ext: "skel"},
+		];
+
+		var canvas;
+		var gl;
+		var shader;
+		var batcher;
+		var mvp = new spine.webgl.Matrix4();
+		var skeletonRenderer;
+		var assetManager;
+
+		var debugRenderer;
+		var shapes;
+
+		var lastFrameTime;
+		var skeletons = {};
+		var activeSkeleton = fairys[0].name;
+		var swirlTime = 0;
+
+		function init() {
+			// Setup canvas and WebGL context. We pass alpha: false to canvas.getContext() so we don't use premultiplied alpha when
+			// loading textures. That is handled separately by PolygonBatcher.
+			canvas = document.getElementById("canvas");
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+			var config = { alpha: true };
+			gl = canvas.getContext("webgl", config) || canvas.getContext("experimental-webgl", config);
+			if (!gl) {
+				alert('WebGL is unavailable.');
+				return;
+			}
+
+			// Create a simple shader, mesh, model-view-projection matrix, SkeletonRenderer, and AssetManager.
+			shader = spine.webgl.Shader.newTwoColoredTextured(gl);
+			batcher = new spine.webgl.PolygonBatcher(gl);
+			mvp.ortho2d(0, 0, canvas.width - 1, canvas.height - 1);
+			skeletonRenderer = new spine.webgl.SkeletonRenderer(gl);
+			assetManager = new spine.webgl.AssetManager(gl);
+
+			// Create a debug renderer and the ShapeRenderer it needs to render lines.
+			debugRenderer = new spine.webgl.SkeletonDebugRenderer(gl);
+			debugRenderer.drawRegionAttachments = true;
+			debugRenderer.drawBoundingBoxes = true;
+			debugRenderer.drawMeshHull = true;
+			debugRenderer.drawMeshTriangles = true;
+			debugRenderer.drawPaths = true;
+			debugShader = spine.webgl.Shader.newColored(gl);
+			shapes = new spine.webgl.ShapeRenderer(gl);
+
+			// Tell AssetManager to load the resources for each skeleton, including the exported .skel file, the .atlas file and the .png
+			// file for the atlas. We then wait until all resources are loaded in the load() method.
+			for (i in fairys) {
+				fairy = fairys[i];
+				if (fairy.type === "binary")
+					assetManager.loadBinary(`./skels/${fairy.id}/0.${fairy.ext}`);
+				else if (fairy.type === "text")
+					assetManager.loadText(`./skels/${fairy.id}/0.${fairy.ext}`);
+				assetManager.loadTextureAtlas(`./skels/${fairy.id}/0.atlas`);
+			}
+			requestAnimationFrame(load);
+		}
+
+		function load() {
+			// Wait until the AssetManager has loaded all resources, then load the skeletons.
+			if (assetManager.isLoadingComplete()) {
+				for (i in fairys) {
+					fairy = fairys[i];
+					skeletons[fairy.name] = loadSkeleton(fairy, "idle", true, "default");
+				}
+				setupUI();
+				lastFrameTime = Date.now() / 1000;
+				requestAnimationFrame(render); // Loading is done, call render every frame.
+			} else {
+				requestAnimationFrame(load);
+			}
+		}
+
+		function loadSkeleton(fairy, initialAnimation, premultipliedAlpha, skin) {
+			if (skin === undefined) skin = "default";
+
+			// Load the texture atlas using name.atlas from the AssetManager.
+			var atlas = assetManager.get(`./skels/${fairy.id}/0.atlas`);
+
+			// Create a AtlasAttachmentLoader that resolves region, mesh, boundingbox and path attachments
+			var atlasLoader = new spine.AtlasAttachmentLoader(atlas);
+
+			if (fairy.type === "binary") {
+				// Create a SkeletonBinary instance for parsing the .skel file.
+				var skeletonSource = new spine.SkeletonBinary(atlasLoader);
+			} else if (fairy.type === "text") {
+				// Create a SkeletonBinary instance for parsing the .json file.
+				var skeletonSource = new spine.SkeletonJson(atlasLoader);
+			}
+			// Set the scale to apply during parsing, parse the file, and create a new skeleton.
+			skeletonSource.scale = 1;
+			var skeletonData = skeletonSource.readSkeletonData(assetManager.get(`./skels/${fairy.id}/0.${fairy.ext}`));
+			var skeleton = new spine.Skeleton(skeletonData);
+			skeleton.setSkinByName(skin);
+			var bounds = calculateSetupPoseBounds(skeleton);
+
+			// Create an AnimationState, and set the initial animation in looping mode.
+			var animationStateData = new spine.AnimationStateData(skeleton.data);
+			var animationState = new spine.AnimationState(animationStateData);
+			animationState.setAnimation(0, initialAnimation, true);
+			// animationState.addListener({
+			// 	start: function (track) {
+			// 		console.log("Animation on track " + track.trackIndex + " started");
+			// 	},
+			// 	interrupt: function (track) {
+			// 		console.log("Animation on track " + track.trackIndex + " interrupted");
+			// 	},
+			// 	end: function (track) {
+			// 		console.log("Animation on track " + track.trackIndex + " ended");
+			// 	},
+			// 	disposed: function (track) {
+			// 		console.log("Animation on track " + track.trackIndex + " disposed");
+			// 	},
+			// 	complete: function (track) {
+			// 		console.log("Animation on track " + track.trackIndex + " completed");
+			// 	},
+			// 	event: function (track, event) {
+			// 		console.log("Event on track " + track.trackIndex + ": " + JSON.stringify(event));
+			// 	}
+			// })
+
+			// Pack everything up and return to caller.
+			return { skeleton: skeleton, state: animationState, bounds: bounds, premultipliedAlpha: premultipliedAlpha };
+		}
+
+		function calculateSetupPoseBounds(skeleton) {
+			skeleton.setToSetupPose();
+			skeleton.updateWorldTransform();
+			var offset = new spine.Vector2();
+			var size = new spine.Vector2();
+			skeleton.getBounds(offset, size, []);
+			return { offset: offset, size: size };
+		}
+
+		function setupUI() {
+			var skeletonList = $("#skeletonList");
+			for (var skeletonName in skeletons) {
+				var option = $("<option></option>");
+				option.attr("value", skeletonName).text(skeletonName);
+				if (skeletonName === activeSkeleton) option.attr("selected", "selected");
+				skeletonList.append(option);
+			}
+			var setupAnimationUI = function () {
+				var animationList = $("#animationList");
+				animationList.empty();
+				var skeleton = skeletons[activeSkeleton].skeleton;
+				var state = skeletons[activeSkeleton].state;
+				var activeAnimation = state.tracks[0].animation.name;
+				for (var i = 0; i < skeleton.data.animations.length; i++) {
+					var name = skeleton.data.animations[i].name;
+					var option = $("<option></option>");
+					option.attr("value", name).text(name);
+					if (name === activeAnimation) option.attr("selected", "selected");
+					animationList.append(option);
+				}
+
+				animationList.change(function () {
+					var state = skeletons[activeSkeleton].state;
+					var skeleton = skeletons[activeSkeleton].skeleton;
+					var animationName = $("#animationList option:selected").text();
+					skeleton.setToSetupPose();
+					state.setAnimation(0, animationName, true);
+				})
+			}
+
+			var setupSkinUI = function () {
+				var skinList = $("#skinList");
+				skinList.empty();
+				var skeleton = skeletons[activeSkeleton].skeleton;
+				var activeSkin = skeleton.skin == null ? "default" : skeleton.skin.name;
+				for (var i = 0; i < skeleton.data.skins.length; i++) {
+					var name = skeleton.data.skins[i].name;
+					var option = $("<option></option>");
+					option.attr("value", name).text(name);
+					if (name === activeSkin) option.attr("selected", "selected");
+					skinList.append(option);
+				}
+
+				skinList.change(function () {
+					var skeleton = skeletons[activeSkeleton].skeleton;
+					var skinName = $("#skinList option:selected").text();
+					skeleton.setSkinByName(skinName);
+					skeleton.setSlotsToSetupPose();
+				})
+			}
+
+			skeletonList.change(function () {
+				activeSkeleton = $("#skeletonList option:selected").text();
+				setupAnimationUI();
+				setupSkinUI();
+			})
+			setupAnimationUI();
+			setupSkinUI();
+		}
+
+		function render() {
+			var now = Date.now() / 1000;
+			var delta = now - lastFrameTime;
+			lastFrameTime = now;
+
+			// Update the MVP matrix to adjust for canvas size changes
+			resize();
+
+			gl.clearColor(0, 0, 0, 0);
+			gl.clear(gl.COLOR_BUFFER_BIT);
+
+			// Apply the animation state based on the delta time.
+			var skeleton = skeletons[activeSkeleton].skeleton;
+			var state = skeletons[activeSkeleton].state;
+			var bounds = skeletons[activeSkeleton].bounds;
+			var premultipliedAlpha = skeletons[activeSkeleton].premultipliedAlpha;
+			state.update(delta);
+			state.apply(skeleton);
+			skeleton.updateWorldTransform();
+
+			// Bind the shader and set the texture and model-view-projection matrix.
+			shader.bind();
+			shader.setUniformi(spine.webgl.Shader.SAMPLER, 0);
+			shader.setUniform4x4f(spine.webgl.Shader.MVP_MATRIX, mvp.values);
+
+			// Start the batch and tell the SkeletonRenderer to render the active skeleton.
+			batcher.begin(shader);
+
+			skeletonRenderer.premultipliedAlpha = premultipliedAlpha;
+			skeletonRenderer.draw(batcher, skeleton);
+			batcher.end();
+
+			shader.unbind();
+
+			// Draw debug information.
+			var debug = $('#debug').is(':checked');
+			if (debug) {
+				debugShader.bind();
+				debugShader.setUniform4x4f(spine.webgl.Shader.MVP_MATRIX, mvp.values);
+				debugRenderer.premultipliedAlpha = premultipliedAlpha;
+				shapes.begin(debugShader);
+				debugRenderer.draw(shapes, skeleton);
+				shapes.end();
+				debugShader.unbind();
+			}
+
+			requestAnimationFrame(render);
+		}
+
+		function resize() {
+			var w = canvas.clientWidth;
+			var h = canvas.clientHeight;
+			if (canvas.width != w || canvas.height != h) {
+				canvas.width = w;
+				canvas.height = h;
+			}
+
+			// Calculations to center the skeleton in the canvas.
+			var bounds = skeletons[activeSkeleton].bounds;
+			var centerX = bounds.offset.x + bounds.size.x / 2;
+			var centerY = bounds.offset.y + bounds.size.y / 2;
+			var scaleX = bounds.size.x / canvas.width;
+			var scaleY = bounds.size.y / canvas.height;
+			var scale = Math.max(scaleX, scaleY) * 1.2;
+			if (scale < 1) scale = 1;
+			var width = canvas.width * scale;
+			var height = canvas.height * scale;
+
+			mvp.ortho2d(centerX - width / 2, centerY - height / 2, width, height);
+			gl.viewport(0, 0, canvas.width, canvas.height);
+		}
+
+		init();
+
+	</script>
+</body>
+</html>

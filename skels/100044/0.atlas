@@ -1,0 +1,160 @@
+
+0.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+keling_dj_01
+  rotate: true
+  xy: 406, 73
+  size: 25, 36
+  orig: 25, 36
+  offset: 0, 0
+  index: -1
+keling_dj_02
+  rotate: false
+  xy: 162, 70
+  size: 88, 55
+  orig: 88, 55
+  offset: 0, 0
+  index: -1
+keling_dj_03
+  rotate: false
+  xy: 95, 3
+  size: 67, 43
+  orig: 67, 43
+  offset: 0, 0
+  index: -1
+keling_dj_04
+  rotate: false
+  xy: 310, 13
+  size: 86, 56
+  orig: 86, 56
+  offset: 0, 0
+  index: -1
+keling_dj_05
+  rotate: false
+  xy: 252, 71
+  size: 84, 54
+  orig: 84, 54
+  offset: 0, 0
+  index: -1
+keling_dj_06
+  rotate: false
+  xy: 338, 72
+  size: 66, 53
+  orig: 66, 53
+  offset: 0, 0
+  index: -1
+keling_dj_07
+  rotate: false
+  xy: 502, 75
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+keling_dj_08
+  rotate: true
+  xy: 240, 12
+  size: 39, 68
+  orig: 39, 68
+  offset: 0, 0
+  index: -1
+keling_dj_09
+  rotate: false
+  xy: 444, 73
+  size: 28, 25
+  orig: 28, 25
+  offset: 0, 0
+  index: -1
+keling_dj_10
+  rotate: true
+  xy: 530, 40
+  size: 85, 84
+  orig: 85, 84
+  offset: 0, 0
+  index: -1
+keling_dj_11
+  rotate: true
+  xy: 489, 103
+  size: 22, 20
+  orig: 22, 20
+  offset: 0, 0
+  index: -1
+keling_dj_12
+  rotate: false
+  xy: 162, 52
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+keling_dj_13
+  rotate: false
+  xy: 2, 3
+  size: 34, 8
+  orig: 34, 8
+  offset: 0, 0
+  index: -1
+keling_dj_14
+  rotate: false
+  xy: 196, 57
+  size: 33, 11
+  orig: 33, 11
+  offset: 0, 0
+  index: -1
+keling_dj_15
+  rotate: false
+  xy: 474, 81
+  size: 26, 17
+  orig: 26, 17
+  offset: 0, 0
+  index: -1
+keling_dj_16
+  rotate: true
+  xy: 460, 6
+  size: 65, 59
+  orig: 65, 59
+  offset: 0, 0
+  index: -1
+keling_dj_17
+  rotate: false
+  xy: 406, 100
+  size: 81, 25
+  orig: 81, 25
+  offset: 0, 0
+  index: -1
+keling_dj_18
+  rotate: true
+  xy: 398, 6
+  size: 64, 60
+  orig: 64, 60
+  offset: 0, 0
+  index: -1
+keling_dj_19
+  rotate: true
+  xy: 164, 2
+  size: 48, 74
+  orig: 48, 74
+  offset: 0, 0
+  index: -1
+keling_dj_20
+  rotate: true
+  xy: 231, 53
+  size: 15, 21
+  orig: 15, 21
+  offset: 0, 0
+  index: -1
+keling_dj_21
+  rotate: false
+  xy: 2, 48
+  size: 158, 77
+  orig: 158, 77
+  offset: 0, 0
+  index: -1
+keling_dj_22
+  rotate: false
+  xy: 2, 13
+  size: 91, 33
+  orig: 91, 33
+  offset: 0, 0
+  index: -1

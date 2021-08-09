@@ -1,0 +1,265 @@
+
+0.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+talangte_dj_01
+  rotate: true
+  xy: 357, 63
+  size: 63, 41
+  orig: 63, 41
+  offset: 0, 0
+  index: -1
+talangte_dj_02
+  rotate: false
+  xy: 589, 83
+  size: 32, 43
+  orig: 32, 43
+  offset: 0, 0
+  index: -1
+talangte_dj_03
+  rotate: true
+  xy: 228, 2
+  size: 35, 27
+  orig: 35, 27
+  offset: 0, 0
+  index: -1
+talangte_dj_04
+  rotate: true
+  xy: 116, 2
+  size: 18, 48
+  orig: 18, 48
+  offset: 0, 0
+  index: -1
+talangte_dj_05
+  rotate: true
+  xy: 400, 65
+  size: 61, 52
+  orig: 61, 52
+  offset: 0, 0
+  index: -1
+talangte_dj_06
+  rotate: true
+  xy: 559, 80
+  size: 46, 28
+  orig: 46, 28
+  offset: 0, 0
+  index: -1
+talangte_dj_07
+  rotate: true
+  xy: 528, 22
+  size: 50, 32
+  orig: 50, 32
+  offset: 0, 0
+  index: -1
+talangte_dj_08
+  rotate: true
+  xy: 529, 79
+  size: 47, 28
+  orig: 47, 28
+  offset: 0, 0
+  index: -1
+talangte_dj_09
+  rotate: true
+  xy: 454, 72
+  size: 54, 25
+  orig: 54, 25
+  offset: 0, 0
+  index: -1
+talangte_dj_10
+  rotate: true
+  xy: 407, 4
+  size: 59, 34
+  orig: 59, 34
+  offset: 0, 0
+  index: -1
+talangte_dj_11
+  rotate: false
+  xy: 489, 4
+  size: 15, 12
+  orig: 15, 12
+  offset: 0, 0
+  index: -1
+talangte_dj_12
+  rotate: true
+  xy: 622, 39
+  size: 42, 25
+  orig: 42, 25
+  offset: 0, 0
+  index: -1
+talangte_dj_13
+  rotate: true
+  xy: 443, 8
+  size: 55, 32
+  orig: 55, 32
+  offset: 0, 0
+  index: -1
+talangte_dj_14
+  rotate: false
+  xy: 166, 2
+  size: 26, 18
+  orig: 26, 18
+  offset: 0, 0
+  index: -1
+talangte_dj_15
+  rotate: true
+  xy: 212, 2
+  size: 18, 14
+  orig: 18, 14
+  offset: 0, 0
+  index: -1
+talangte_dj_16
+  rotate: true
+  xy: 349, 52
+  size: 6, 4
+  orig: 6, 4
+  offset: 0, 0
+  index: -1
+talangte_dj_17
+  rotate: true
+  xy: 477, 2
+  size: 14, 10
+  orig: 14, 10
+  offset: 0, 0
+  index: -1
+talangte_dj_18
+  rotate: false
+  xy: 330, 52
+  size: 10, 6
+  orig: 10, 6
+  offset: 0, 0
+  index: -1
+talangte_dj_19
+  rotate: true
+  xy: 218, 25
+  size: 12, 7
+  orig: 12, 7
+  offset: 0, 0
+  index: -1
+talangte_dj_20
+  rotate: true
+  xy: 342, 52
+  size: 6, 5
+  orig: 6, 5
+  offset: 0, 0
+  index: -1
+talangte_dj_21
+  rotate: true
+  xy: 562, 2
+  size: 30, 32
+  orig: 30, 32
+  offset: 0, 0
+  index: -1
+talangte_dj_22
+  rotate: false
+  xy: 116, 22
+  size: 100, 104
+  orig: 100, 104
+  offset: 0, 0
+  index: -1
+talangte_dj_23
+  rotate: true
+  xy: 255, 52
+  size: 74, 73
+  orig: 74, 73
+  offset: 0, 0
+  index: -1
+talangte_dj_24
+  rotate: false
+  xy: 481, 74
+  size: 46, 52
+  orig: 46, 52
+  offset: 0, 0
+  index: -1
+talangte_dj_25
+  rotate: false
+  xy: 629, 7
+  size: 28, 30
+  orig: 28, 30
+  offset: 0, 0
+  index: -1
+talangte_dj_26
+  rotate: true
+  xy: 218, 39
+  size: 87, 35
+  orig: 87, 35
+  offset: 0, 0
+  index: -1
+talangte_dj_27
+  rotate: true
+  xy: 315, 2
+  size: 48, 46
+  orig: 48, 46
+  offset: 0, 0
+  index: -1
+talangte_dj_28
+  rotate: true
+  xy: 257, 2
+  size: 48, 56
+  orig: 48, 56
+  offset: 0, 0
+  index: -1
+talangte_dj_29
+  rotate: true
+  xy: 477, 18
+  size: 52, 49
+  orig: 52, 49
+  offset: 0, 0
+  index: -1
+talangte_dj_30
+  rotate: true
+  xy: 363, 2
+  size: 59, 42
+  orig: 59, 42
+  offset: 0, 0
+  index: -1
+talangte_dj_31
+  rotate: true
+  xy: 596, 2
+  size: 34, 31
+  orig: 34, 31
+  offset: 0, 0
+  index: -1
+talangte_dj_32
+  rotate: true
+  xy: 623, 88
+  size: 38, 29
+  orig: 38, 29
+  offset: 0, 0
+  index: -1
+talangte_dj_33
+  rotate: false
+  xy: 194, 2
+  size: 16, 18
+  orig: 16, 18
+  offset: 0, 0
+  index: -1
+talangte_dj_34
+  rotate: true
+  xy: 2, 7
+  size: 119, 112
+  orig: 119, 112
+  offset: 0, 0
+  index: -1
+talangte_dj_35
+  rotate: false
+  xy: 594, 38
+  size: 26, 43
+  orig: 26, 43
+  offset: 0, 0
+  index: -1
+talangte_dj_36
+  rotate: true
+  xy: 562, 34
+  size: 44, 30
+  orig: 44, 30
+  offset: 0, 0
+  index: -1
+talangte_dj_37
+  rotate: true
+  xy: 330, 60
+  size: 66, 25
+  orig: 66, 25
+  offset: 0, 0
+  index: -1

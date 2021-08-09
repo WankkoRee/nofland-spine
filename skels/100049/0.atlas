@@ -1,0 +1,342 @@
+
+0.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+talante_gj_01
+  rotate: false
+  xy: 249, 5
+  size: 61, 45
+  orig: 61, 45
+  offset: 0, 0
+  index: -1
+talante_gj_02
+  rotate: false
+  xy: 54, 5
+  size: 22, 18
+  orig: 22, 18
+  offset: 0, 0
+  index: -1
+talante_gj_03
+  rotate: false
+  xy: 157, 109
+  size: 15, 14
+  orig: 15, 14
+  offset: 0, 0
+  index: -1
+talante_gj_04
+  rotate: false
+  xy: 136, 125
+  size: 111, 129
+  orig: 111, 129
+  offset: 0, 0
+  index: -1
+talante_gj_05
+  rotate: false
+  xy: 249, 129
+  size: 113, 125
+  orig: 113, 125
+  offset: 0, 0
+  index: -1
+talante_gj_06
+  rotate: false
+  xy: 595, 39
+  size: 26, 36
+  orig: 26, 36
+  offset: 0, 0
+  index: -1
+talante_gj_07
+  rotate: false
+  xy: 503, 10
+  size: 56, 58
+  orig: 56, 58
+  offset: 0, 0
+  index: -1
+talante_gj_08
+  rotate: true
+  xy: 384, 55
+  size: 72, 68
+  orig: 72, 68
+  offset: 0, 0
+  index: -1
+talante_gj_09
+  rotate: false
+  xy: 2, 25
+  size: 111, 82
+  orig: 111, 82
+  offset: 0, 0
+  index: -1
+talante_gj_10
+  rotate: true
+  xy: 595, 228
+  size: 26, 40
+  orig: 26, 40
+  offset: 0, 0
+  index: -1
+talante_gj_11
+  rotate: false
+  xy: 580, 153
+  size: 44, 32
+  orig: 44, 32
+  offset: 0, 0
+  index: -1
+talante_gj_12
+  rotate: false
+  xy: 115, 29
+  size: 20, 6
+  orig: 20, 6
+  offset: 0, 0
+  index: -1
+talante_gj_13
+  rotate: false
+  xy: 385, 12
+  size: 56, 41
+  orig: 56, 41
+  offset: 0, 0
+  index: -1
+talante_gj_14
+  rotate: false
+  xy: 483, 220
+  size: 56, 34
+  orig: 56, 34
+  offset: 0, 0
+  index: -1
+talante_gj_15
+  rotate: false
+  xy: 488, 184
+  size: 50, 34
+  orig: 50, 34
+  offset: 0, 0
+  index: -1
+talante_gj_16
+  rotate: false
+  xy: 428, 132
+  size: 61, 39
+  orig: 61, 39
+  offset: 0, 0
+  index: -1
+talante_gj_17
+  rotate: false
+  xy: 364, 129
+  size: 62, 42
+  orig: 62, 42
+  offset: 0, 0
+  index: -1
+talante_gj_18
+  rotate: false
+  xy: 540, 187
+  size: 47, 31
+  orig: 47, 31
+  offset: 0, 0
+  index: -1
+talante_gj_19
+  rotate: false
+  xy: 443, 17
+  size: 58, 36
+  orig: 58, 36
+  offset: 0, 0
+  index: -1
+talante_gj_20
+  rotate: true
+  xy: 96, 2
+  size: 21, 14
+  orig: 21, 14
+  offset: 0, 0
+  index: -1
+talante_gj_21
+  rotate: false
+  xy: 27, 5
+  size: 25, 18
+  orig: 25, 18
+  offset: 0, 0
+  index: -1
+talante_gj_22
+  rotate: false
+  xy: 2, 3
+  size: 23, 20
+  orig: 23, 20
+  offset: 0, 0
+  index: -1
+talante_gj_23
+  rotate: true
+  xy: 112, 4
+  size: 19, 14
+  orig: 19, 14
+  offset: 0, 0
+  index: -1
+talante_gj_24
+  rotate: false
+  xy: 136, 112
+  size: 19, 11
+  orig: 19, 11
+  offset: 0, 0
+  index: -1
+talante_gj_25
+  rotate: true
+  xy: 78, 3
+  size: 20, 16
+  orig: 20, 16
+  offset: 0, 0
+  index: -1
+talante_gj_26
+  rotate: true
+  xy: 511, 92
+  size: 42, 37
+  orig: 42, 37
+  offset: 0, 0
+  index: -1
+talante_gj_27
+  rotate: true
+  xy: 310, 54
+  size: 73, 72
+  orig: 73, 72
+  offset: 0, 0
+  index: -1
+talante_gj_28
+  rotate: true
+  xy: 364, 173
+  size: 81, 77
+  orig: 81, 77
+  offset: 0, 0
+  index: -1
+talante_gj_29
+  rotate: false
+  xy: 128, 4
+  size: 32, 23
+  orig: 32, 23
+  offset: 0, 0
+  index: -1
+talante_gj_30
+  rotate: true
+  xy: 115, 37
+  size: 70, 100
+  orig: 70, 100
+  offset: 0, 0
+  index: -1
+talante_gj_31
+  rotate: true
+  xy: 541, 227
+  size: 27, 52
+  orig: 27, 52
+  offset: 0, 0
+  index: -1
+talante_gj_32
+  rotate: true
+  xy: 527, 153
+  size: 29, 51
+  orig: 29, 51
+  offset: 0, 0
+  index: -1
+talante_gj_33
+  rotate: false
+  xy: 601, 8
+  size: 28, 29
+  orig: 28, 29
+  offset: 0, 0
+  index: -1
+talante_gj_34
+  rotate: false
+  xy: 491, 136
+  size: 34, 46
+  orig: 34, 46
+  offset: 0, 0
+  index: -1
+talante_gj_35
+  rotate: true
+  xy: 561, 36
+  size: 37, 32
+  orig: 37, 32
+  offset: 0, 0
+  index: -1
+talante_gj_36
+  rotate: true
+  xy: 586, 77
+  size: 34, 31
+  orig: 34, 31
+  offset: 0, 0
+  index: -1
+talante_gj_37
+  rotate: false
+  xy: 312, 2
+  size: 71, 50
+  orig: 71, 50
+  offset: 0, 0
+  index: -1
+talante_gj_38
+  rotate: false
+  xy: 550, 113
+  size: 38, 38
+  orig: 38, 38
+  offset: 0, 0
+  index: -1
+talante_gj_39
+  rotate: false
+  xy: 590, 116
+  size: 30, 35
+  orig: 30, 35
+  offset: 0, 0
+  index: -1
+talante_gj_40
+  rotate: false
+  xy: 454, 70
+  size: 55, 60
+  orig: 55, 60
+  offset: 0, 0
+  index: -1
+talante_gj_41
+  rotate: true
+  xy: 443, 201
+  size: 53, 38
+  orig: 53, 38
+  offset: 0, 0
+  index: -1
+talante_gj_42
+  rotate: false
+  xy: 550, 75
+  size: 34, 36
+  orig: 34, 36
+  offset: 0, 0
+  index: -1
+talante_gj_43
+  rotate: false
+  xy: 561, 4
+  size: 38, 30
+  orig: 38, 30
+  offset: 0, 0
+  index: -1
+talante_gj_44
+  rotate: false
+  xy: 217, 52
+  size: 91, 71
+  orig: 91, 71
+  offset: 0, 0
+  index: -1
+talante_gj_45
+  rotate: true
+  xy: 2, 109
+  size: 145, 132
+  orig: 145, 132
+  offset: 0, 0
+  index: -1
+talante_gj_46
+  rotate: true
+  xy: 443, 173
+  size: 26, 43
+  orig: 26, 43
+  offset: 0, 0
+  index: -1
+talante_gj_47
+  rotate: false
+  xy: 589, 195
+  size: 44, 30
+  orig: 44, 30
+  offset: 0, 0
+  index: -1
+talante_gj_48
+  rotate: false
+  xy: 162, 5
+  size: 85, 30
+  orig: 85, 30
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,279 @@
+
+0.png
+size: 345,345
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+houbeidianzi
+  rotate: false
+  xy: 2, 79
+  size: 76, 77
+  orig: 76, 77
+  offset: 0, 0
+  index: -1
+qnys_gj_01
+  rotate: true
+  xy: 236, 99
+  size: 21, 52
+  orig: 21, 52
+  offset: 0, 0
+  index: -1
+qnys_gj_02
+  rotate: false
+  xy: 196, 122
+  size: 48, 42
+  orig: 48, 42
+  offset: 0, 0
+  index: -1
+qnys_gj_03
+  rotate: true
+  xy: 80, 72
+  size: 84, 36
+  orig: 84, 36
+  offset: 0, 0
+  index: -1
+qnys_gj_04
+  rotate: true
+  xy: 295, 183
+  size: 19, 14
+  orig: 19, 14
+  offset: 0, 0
+  index: -1
+qnys_gj_05
+  rotate: false
+  xy: 264, 11
+  size: 16, 17
+  orig: 16, 17
+  offset: 0, 0
+  index: -1
+qnys_gj_06
+  rotate: true
+  xy: 315, 223
+  size: 37, 28
+  orig: 37, 28
+  offset: 0, 0
+  index: -1
+qnys_gj_07
+  rotate: false
+  xy: 266, 30
+  size: 33, 20
+  orig: 33, 20
+  offset: 0, 0
+  index: -1
+qnys_gj_08
+  rotate: false
+  xy: 236, 65
+  size: 61, 9
+  orig: 61, 9
+  offset: 0, 0
+  index: -1
+qnys_gj_09
+  rotate: false
+  xy: 236, 52
+  size: 66, 11
+  orig: 66, 11
+  offset: 0, 0
+  index: -1
+qnys_gj_10
+  rotate: false
+  xy: 195, 38
+  size: 69, 12
+  orig: 69, 12
+  offset: 0, 0
+  index: -1
+qnys_gj_11
+  rotate: false
+  xy: 80, 2
+  size: 60, 68
+  orig: 60, 68
+  offset: 0, 0
+  index: -1
+qnys_gj_12
+  rotate: true
+  xy: 117, 213
+  size: 50, 78
+  orig: 50, 78
+  offset: 0, 0
+  index: -1
+qnys_gj_13
+  rotate: false
+  xy: 277, 262
+  size: 65, 81
+  orig: 65, 81
+  offset: 0, 0
+  index: -1
+qnys_gj_14
+  rotate: true
+  xy: 315, 191
+  size: 30, 28
+  orig: 30, 28
+  offset: 0, 0
+  index: -1
+qnys_gj_15
+  rotate: false
+  xy: 236, 76
+  size: 52, 21
+  orig: 52, 21
+  offset: 0, 0
+  index: -1
+qnys_gj_16
+  rotate: true
+  xy: 253, 203
+  size: 64, 22
+  orig: 64, 22
+  offset: 0, 0
+  index: -1
+qnys_gj_17
+  rotate: false
+  xy: 118, 74
+  size: 10, 4
+  orig: 10, 4
+  offset: 0, 0
+  index: -1
+qnys_gj_18
+  rotate: false
+  xy: 295, 168
+  size: 12, 13
+  orig: 12, 13
+  offset: 0, 0
+  index: -1
+qnys_gj_19
+  rotate: true
+  xy: 264, 2
+  size: 7, 3
+  orig: 7, 3
+  offset: 0, 0
+  index: -1
+qnys_gj_20
+  rotate: false
+  xy: 196, 269
+  size: 79, 74
+  orig: 79, 74
+  offset: 0, 0
+  index: -1
+qnys_gj_21
+  rotate: true
+  xy: 236, 5
+  size: 31, 26
+  orig: 31, 26
+  offset: 0, 0
+  index: -1
+qnys_gj_22
+  rotate: false
+  xy: 2, 233
+  size: 113, 110
+  orig: 113, 110
+  offset: 0, 0
+  index: -1
+qnys_gj_23
+  rotate: false
+  xy: 150, 112
+  size: 44, 53
+  orig: 44, 53
+  offset: 0, 0
+  index: -1
+qnys_gj_24
+  rotate: true
+  xy: 200, 166
+  size: 45, 51
+  orig: 45, 51
+  offset: 0, 0
+  index: -1
+qnys_gj_25
+  rotate: false
+  xy: 2, 158
+  size: 111, 73
+  orig: 111, 73
+  offset: 0, 0
+  index: -1
+qnys_gj_26
+  rotate: false
+  xy: 150, 74
+  size: 47, 36
+  orig: 47, 36
+  offset: 0, 0
+  index: -1
+qnys_gj_27
+  rotate: false
+  xy: 277, 204
+  size: 36, 56
+  orig: 36, 56
+  offset: 0, 0
+  index: -1
+qnys_gj_28
+  rotate: false
+  xy: 142, 38
+  size: 51, 34
+  orig: 51, 34
+  offset: 0, 0
+  index: -1
+qnys_gj_29
+  rotate: false
+  xy: 142, 2
+  size: 49, 34
+  orig: 49, 34
+  offset: 0, 0
+  index: -1
+qnys_gj_30
+  rotate: false
+  xy: 199, 72
+  size: 35, 48
+  orig: 35, 48
+  offset: 0, 0
+  index: -1
+qnys_gj_31
+  rotate: true
+  xy: 2, 5
+  size: 72, 76
+  orig: 72, 76
+  offset: 0, 0
+  index: -1
+qnys_gj_32
+  rotate: false
+  xy: 253, 162
+  size: 40, 39
+  orig: 40, 39
+  offset: 0, 0
+  index: -1
+qnys_gj_33
+  rotate: true
+  xy: 193, 2
+  size: 34, 41
+  orig: 34, 41
+  offset: 0, 0
+  index: -1
+qnys_gj_34
+  rotate: false
+  xy: 246, 122
+  size: 40, 38
+  orig: 40, 38
+  offset: 0, 0
+  index: -1
+qnys_gj_35
+  rotate: false
+  xy: 117, 265
+  size: 77, 78
+  orig: 77, 78
+  offset: 0, 0
+  index: -1
+qnys_gj_36
+  rotate: true
+  xy: 115, 167
+  size: 44, 83
+  orig: 44, 83
+  offset: 0, 0
+  index: -1
+qnys_gj_37
+  rotate: false
+  xy: 197, 213
+  size: 54, 54
+  orig: 54, 54
+  offset: 0, 0
+  index: -1
+qnys_gj_38
+  rotate: true
+  xy: 118, 80
+  size: 85, 30
+  orig: 85, 30
+  offset: 0, 0
+  index: -1

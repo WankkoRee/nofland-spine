@@ -1,0 +1,293 @@
+
+0.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kelin_gj_01
+  rotate: false
+  xy: 842, 50
+  size: 26, 76
+  orig: 26, 76
+  offset: 0, 0
+  index: -1
+kelin_gj_02
+  rotate: true
+  xy: 303, 2
+  size: 34, 51
+  orig: 34, 51
+  offset: 0, 0
+  index: -1
+kelin_gj_03
+  rotate: true
+  xy: 356, 4
+  size: 34, 51
+  orig: 34, 51
+  offset: 0, 0
+  index: -1
+kelin_gj_04
+  rotate: true
+  xy: 453, 5
+  size: 34, 51
+  orig: 34, 51
+  offset: 0, 0
+  index: -1
+kelin_gj_05
+  rotate: true
+  xy: 276, 38
+  size: 88, 55
+  orig: 88, 55
+  offset: 0, 0
+  index: -1
+kelin_gj_06
+  rotate: false
+  xy: 773, 4
+  size: 67, 43
+  orig: 67, 43
+  offset: 0, 0
+  index: -1
+kelin_gj_07
+  rotate: true
+  xy: 333, 40
+  size: 86, 56
+  orig: 86, 56
+  offset: 0, 0
+  index: -1
+kelin_gj_08
+  rotate: true
+  xy: 518, 42
+  size: 84, 54
+  orig: 84, 54
+  offset: 0, 0
+  index: -1
+kelin_gj_09
+  rotate: true
+  xy: 870, 54
+  size: 72, 29
+  orig: 72, 29
+  offset: 0, 0
+  index: -1
+kelin_gj_10
+  rotate: false
+  xy: 969, 115
+  size: 11, 11
+  orig: 11, 11
+  offset: 0, 0
+  index: -1
+kelin_gj_11
+  rotate: true
+  xy: 85, 3
+  size: 15, 22
+  orig: 15, 22
+  offset: 0, 0
+  index: -1
+kelin_gj_12
+  rotate: true
+  xy: 249, 5
+  size: 19, 18
+  orig: 19, 18
+  offset: 0, 0
+  index: -1
+kelin_gj_13
+  rotate: false
+  xy: 109, 3
+  size: 22, 15
+  orig: 22, 15
+  offset: 0, 0
+  index: -1
+kelin_gj_14
+  rotate: true
+  xy: 133, 3
+  size: 15, 22
+  orig: 15, 22
+  offset: 0, 0
+  index: -1
+kelin_gj_15
+  rotate: true
+  xy: 190, 2
+  size: 22, 14
+  orig: 22, 14
+  offset: 0, 0
+  index: -1
+kelin_gj_16
+  rotate: true
+  xy: 157, 2
+  size: 22, 31
+  orig: 22, 31
+  offset: 0, 0
+  index: -1
+kelin_gj_17
+  rotate: false
+  xy: 842, 8
+  size: 48, 40
+  orig: 48, 40
+  offset: 0, 0
+  index: -1
+kelin_gj_18
+  rotate: true
+  xy: 942, 70
+  size: 26, 25
+  orig: 26, 25
+  offset: 0, 0
+  index: -1
+kelin_gj_19
+  rotate: false
+  xy: 892, 12
+  size: 30, 40
+  orig: 30, 40
+  offset: 0, 0
+  index: -1
+kelin_gj_20
+  rotate: false
+  xy: 506, 5
+  size: 34, 34
+  orig: 34, 34
+  offset: 0, 0
+  index: -1
+kelin_gj_21
+  rotate: false
+  xy: 574, 43
+  size: 44, 83
+  orig: 44, 83
+  offset: 0, 0
+  index: -1
+kelin_gj_22
+  rotate: false
+  xy: 670, 2
+  size: 40, 42
+  orig: 40, 42
+  offset: 0, 0
+  index: -1
+kelin_gj_23
+  rotate: true
+  xy: 924, 13
+  size: 39, 57
+  orig: 39, 57
+  offset: 0, 0
+  index: -1
+kelin_gj_24
+  rotate: false
+  xy: 269, 7
+  size: 32, 17
+  orig: 32, 17
+  offset: 0, 0
+  index: -1
+kelin_gj_25
+  rotate: false
+  xy: 901, 54
+  size: 40, 12
+  orig: 40, 12
+  offset: 0, 0
+  index: -1
+kelin_gj_26
+  rotate: false
+  xy: 44, 2
+  size: 39, 16
+  orig: 39, 16
+  offset: 0, 0
+  index: -1
+kelin_gj_27
+  rotate: false
+  xy: 892, 2
+  size: 40, 8
+  orig: 40, 8
+  offset: 0, 0
+  index: -1
+kelin_gj_28
+  rotate: false
+  xy: 206, 4
+  size: 41, 20
+  orig: 41, 20
+  offset: 0, 0
+  index: -1
+kelin_gj_29
+  rotate: false
+  xy: 712, 2
+  size: 59, 45
+  orig: 59, 45
+  offset: 0, 0
+  index: -1
+kelin_gj_30
+  rotate: true
+  xy: 44, 20
+  size: 106, 98
+  orig: 106, 98
+  offset: 0, 0
+  index: -1
+kelin_gj_31
+  rotate: false
+  xy: 983, 98
+  size: 34, 28
+  orig: 34, 28
+  offset: 0, 0
+  index: -1
+kelin_gj_32
+  rotate: false
+  xy: 391, 41
+  size: 125, 85
+  orig: 125, 85
+  offset: 0, 0
+  index: -1
+kelin_gj_33
+  rotate: true
+  xy: 144, 26
+  size: 100, 67
+  orig: 100, 67
+  offset: 0, 0
+  index: -1
+kelin_gj_34
+  rotate: true
+  xy: 620, 46
+  size: 80, 60
+  orig: 80, 60
+  offset: 0, 0
+  index: -1
+kelin_gj_35
+  rotate: false
+  xy: 213, 26
+  size: 61, 100
+  orig: 61, 100
+  offset: 0, 0
+  index: -1
+kelin_gj_36
+  rotate: true
+  xy: 409, 2
+  size: 37, 42
+  orig: 37, 42
+  offset: 0, 0
+  index: -1
+kelin_gj_37
+  rotate: false
+  xy: 901, 68
+  size: 39, 58
+  orig: 39, 58
+  offset: 0, 0
+  index: -1
+kelin_gj_38
+  rotate: true
+  xy: 606, 2
+  size: 39, 62
+  orig: 39, 62
+  offset: 0, 0
+  index: -1
+kelin_gj_39
+  rotate: true
+  xy: 542, 2
+  size: 38, 62
+  orig: 38, 62
+  offset: 0, 0
+  index: -1
+kelin_gj_40
+  rotate: false
+  xy: 682, 49
+  size: 158, 77
+  orig: 158, 77
+  offset: 0, 0
+  index: -1
+kelin_gj_41
+  rotate: true
+  xy: 2, 4
+  size: 122, 40
+  orig: 122, 40
+  offset: 0, 0
+  index: -1
