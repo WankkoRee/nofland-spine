@@ -1,3 +1,5 @@
+var jsPath;
+
 var fairys;
 
 var canvas;
@@ -67,7 +69,7 @@ function loadSkeleton(fairy, initialAnimation, premultipliedAlpha, skin) {
     if (skin === undefined) skin = "default";
 
     // Load the texture atlas using name.atlas from the AssetManager.
-    var atlas = assetManager.get(`./skels/${activeSkeleton}/0.atlas`);
+    var atlas = assetManager.get(jsPath+`skels/${activeSkeleton}/0.atlas`);
 
     // Create a AtlasAttachmentLoader that resolves region, mesh, boundingbox and path attachments
     var atlasLoader = new spine.AtlasAttachmentLoader(atlas);
@@ -81,7 +83,7 @@ function loadSkeleton(fairy, initialAnimation, premultipliedAlpha, skin) {
     }
     // Set the scale to apply during parsing, parse the file, and create a new skeleton.
     skeletonSource.scale = 1;
-    var skeletonData = skeletonSource.readSkeletonData(assetManager.get(`./skels/${activeSkeleton}/0.${fairy.ext}`));
+    var skeletonData = skeletonSource.readSkeletonData(assetManager.get(jsPath+`skels/${activeSkeleton}/0.${fairy.ext}`));
     var skeleton = new spine.Skeleton(skeletonData);
     skeleton.setSkinByName(skin);
     var bounds = calculateSetupPoseBounds(skeleton);
@@ -247,7 +249,9 @@ function resize() {
 }
 
 $(() => {
-    $.get('./fairys.json', dataType="json", success=(data) => {
+    jsPath = document.scripts[document.scripts.length-1].src.substring(0,document.scripts[document.scripts.length-1].src.lastIndexOf("/")+1);
+
+    $.get(jsPath+'fairys.json', dataType="json", success=(data) => {
         fairys = data;
         var skeletonList = $("#skeletonList");
         var sorted = [];
@@ -273,10 +277,10 @@ $(() => {
             if (!skeletons[activeSkeleton]) {
                 var fairy = fairys[activeSkeleton];
                 if (fairy.type === "binary")
-                    assetManager.loadBinary(`./skels/${activeSkeleton}/0.${fairy.ext}`);
+                    assetManager.loadBinary(jsPath+`skels/${activeSkeleton}/0.${fairy.ext}`);
                 else if (fairy.type === "text")
-                    assetManager.loadText(`./skels/${activeSkeleton}/0.${fairy.ext}`);
-                assetManager.loadTextureAtlas(`./skels/${activeSkeleton}/0.atlas`);
+                    assetManager.loadText(jsPath+`skels/${activeSkeleton}/0.${fairy.ext}`);
+                assetManager.loadTextureAtlas(jsPath+`skels/${activeSkeleton}/0.atlas`);
             }
             requestAnimationFrame(load);
         })
