@@ -9,6 +9,7 @@ var NoflandSpine = {
     skeletonRenderer: undefined,
     assetManager: undefined,
     debugRenderer: undefined,
+    debugShader: undefined,
     shapes: undefined,
     lastFrameTime: undefined,
     skeletons: {},
@@ -40,14 +41,14 @@ var NoflandSpine = {
         NoflandSpine.debugRenderer.drawMeshHull = true;
         NoflandSpine.debugRenderer.drawMeshTriangles = true;
         NoflandSpine.debugRenderer.drawPaths = true;
-        debugShader = spine.webgl.Shader.newColored(NoflandSpine.gl);
+        NoflandSpine.debugShader = spine.webgl.Shader.newColored(NoflandSpine.gl);
         NoflandSpine.shapes = new spine.webgl.ShapeRenderer(NoflandSpine.gl);
     },
     load: () => {
         // Wait until the AssetManager has loaded all resources, then load the skeletons.
         if (NoflandSpine.assetManager.isLoadingComplete()) {
             if (!NoflandSpine.skeletons[NoflandSpine.activeSkeleton]) {
-                fairy = NoflandSpine.fairys[NoflandSpine.activeSkeleton];
+                var fairy = NoflandSpine.fairys[NoflandSpine.activeSkeleton];
                 NoflandSpine.skeletons[NoflandSpine.activeSkeleton] = NoflandSpine.loadSkeleton(fairy, "idle", true, "default");
             }
             NoflandSpine.setupUI();
@@ -203,13 +204,13 @@ var NoflandSpine = {
         // Draw debug information.
         var debug = $('#debug').is(':checked');
         if (debug) {
-            debugShader.bind();
-            debugShader.setUniform4x4f(spine.webgl.Shader.MVP_MATRIX, NoflandSpine.mvp.values);
+            NoflandSpine.debugShader.bind();
+            NoflandSpine.debugShader.setUniform4x4f(spine.webgl.Shader.MVP_MATRIX, NoflandSpine.mvp.values);
             NoflandSpine.debugRenderer.premultipliedAlpha = premultipliedAlpha;
-            NoflandSpine.shapes.begin(debugShader);
+            NoflandSpine.shapes.begin(NoflandSpine.debugShader);
             NoflandSpine.debugRenderer.draw(NoflandSpine.shapes, skeleton);
             NoflandSpine.shapes.end();
-            debugShader.unbind();
+            NoflandSpine.debugShader.unbind();
         }
 
         requestAnimationFrame(NoflandSpine.render);
