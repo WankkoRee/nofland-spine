@@ -1,4 +1,4 @@
-var jsPath;
+const jsPath = document.scripts[document.scripts.length-1].src.substring(0,document.scripts[document.scripts.length-1].src.lastIndexOf("/")+1);
 
 var fairys;
 
@@ -249,8 +249,6 @@ function resize() {
 }
 
 $(() => {
-    jsPath = document.scripts[document.scripts.length-1].src.substring(0,document.scripts[document.scripts.length-1].src.lastIndexOf("/")+1);
-
     $.get(jsPath+'fairys.json', dataType="json", success=(data) => {
         fairys = data;
         var skeletonList = $("#skeletonList");
