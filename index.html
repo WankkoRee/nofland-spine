@@ -24,7 +24,7 @@
 </head>
 <body>
 	<canvas id="canvas"></canvas>
-	<div style="position: fixed; top: 0; width: 100%; display: flex; justify-content: center; line-height: 21px; height: 21px;">
+	<div id="console" style="position: fixed; top: 0; width: 100%; display: flex; justify-content: center; line-height: 21px; height: 21px;">
 		<div>
 			<label for="skeletonList">妖精:&nbsp;</label><select id="skeletonList" style="vertical-align: middle;"></select>
 		</div>
@@ -89,29 +89,18 @@
 			debugRenderer.drawPaths = true;
 			debugShader = spine.webgl.Shader.newColored(gl);
 			shapes = new spine.webgl.ShapeRenderer(gl);
-
-			// Tell AssetManager to load the resources for each skeleton, including the exported .skel file, the .atlas file and the .png
-			// file for the atlas. We then wait until all resources are loaded in the load() method.
-			for (i in fairys) {
-				fairy = fairys[i];
-				if (fairy.type === "binary")
-					assetManager.loadBinary(`./skels/${fairy.id}/0.${fairy.ext}`);
-				else if (fairy.type === "text")
-					assetManager.loadText(`./skels/${fairy.id}/0.${fairy.ext}`);
-				assetManager.loadTextureAtlas(`./skels/${fairy.id}/0.atlas`);
-			}
-			requestAnimationFrame(load);
 		}
 
 		function load() {
 			// Wait until the AssetManager has loaded all resources, then load the skeletons.
 			if (assetManager.isLoadingComplete()) {
-				for (i in fairys) {
-					fairy = fairys[i];
-					skeletons[fairy.name] = loadSkeleton(fairy, "idle", true, "default");
+				if (!skeletons[activeSkeleton]) {
+					fairy = fairys[activeSkeleton];
+					skeletons[activeSkeleton] = loadSkeleton(fairy, "idle", true, "default");
 				}
 				setupUI();
 				lastFrameTime = Date.now() / 1000;
+				$("#console select,input").prop("disabled", false);
 				requestAnimationFrame(render); // Loading is done, call render every frame.
 			} else {
 				requestAnimationFrame(load);
@@ -122,7 +111,7 @@
 			if (skin === undefined) skin = "default";
 
 			// Load the texture atlas using name.atlas from the AssetManager.
-			var atlas = assetManager.get(`./skels/${fairy.id}/0.atlas`);
+			var atlas = assetManager.get(`./skels/${activeSkeleton}/0.atlas`);
 
 			// Create a AtlasAttachmentLoader that resolves region, mesh, boundingbox and path attachments
 			var atlasLoader = new spine.AtlasAttachmentLoader(atlas);
@@ -136,7 +125,7 @@
 			}
 			// Set the scale to apply during parsing, parse the file, and create a new skeleton.
 			skeletonSource.scale = 1;
-			var skeletonData = skeletonSource.readSkeletonData(assetManager.get(`./skels/${fairy.id}/0.${fairy.ext}`));
+			var skeletonData = skeletonSource.readSkeletonData(assetManager.get(`./skels/${activeSkeleton}/0.${fairy.ext}`));
 			var skeleton = new spine.Skeleton(skeletonData);
 			skeleton.setSkinByName(skin);
 			var bounds = calculateSetupPoseBounds(skeleton);
@@ -180,13 +169,7 @@
 		}
 
 		function setupUI() {
-			var skeletonList = $("#skeletonList");
-			for (var skeletonName in skeletons) {
-				var option = $("<option></option>");
-				option.attr("value", skeletonName).text(skeletonName);
-				if (skeletonName === activeSkeleton) option.attr("selected", "selected");
-				skeletonList.append(option);
-			}
+
 			var setupAnimationUI = function () {
 				var animationList = $("#animationList");
 				animationList.empty();
@@ -231,11 +214,7 @@
 				})
 			}
 
-			skeletonList.change(function () {
-				activeSkeleton = $("#skeletonList option:selected").text();
-				setupAnimationUI();
-				setupSkinUI();
-			})
+
 			setupAnimationUI();
 			setupSkinUI();
 		}
@@ -254,7 +233,6 @@
 			// Apply the animation state based on the delta time.
 			var skeleton = skeletons[activeSkeleton].skeleton;
 			var state = skeletons[activeSkeleton].state;
-			var bounds = skeletons[activeSkeleton].bounds;
 			var premultipliedAlpha = skeletons[activeSkeleton].premultipliedAlpha;
 			state.update(delta);
 			state.apply(skeleton);
@@ -315,8 +293,40 @@
 		$(() => {
 			$.get('./fairys.json', dataType="json", success=(data) => {
 				fairys = data;
-				activeSkeleton = fairys[0].name;
+				var skeletonList = $("#skeletonList");
+				var sorted = [];
+				var sortmaps = {};
+				for (var id in fairys) {
+					var fairy = fairys[id];
+					sorted.push(fairy.name);
+					sortmaps[fairy.name] = id;
+				}
+				sorted.sort(new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'}).compare);
+				for (var i in sorted) {
+					var name = sorted[i];
+					var id = sortmaps[name];
+					var option = $("<option></option>");
+					option.attr("value", id).text(name);
+					skeletonList.append(option);
+				}
+				skeletonList.change(() => {
+					$("#console select,input").prop("disabled", true);
+					activeSkeleton = skeletonList.val();
+					// Tell AssetManager to load the resources for each skeleton, including the exported .skel file, the .atlas file and the .png
+					// file for the atlas. We then wait until all resources are loaded in the load() method.
+					if (!skeletons[activeSkeleton]) {
+						var fairy = fairys[activeSkeleton];
+						if (fairy.type === "binary")
+							assetManager.loadBinary(`./skels/${activeSkeleton}/0.${fairy.ext}`);
+						else if (fairy.type === "text")
+							assetManager.loadText(`./skels/${activeSkeleton}/0.${fairy.ext}`);
+						assetManager.loadTextureAtlas(`./skels/${activeSkeleton}/0.atlas`);
+					}
+					requestAnimationFrame(load);
+				})
+				activeSkeleton = skeletonList.val();
 				init();
+				skeletonList.change();
 			});
 		});
 
