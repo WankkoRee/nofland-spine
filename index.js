@@ -1,6 +1,6 @@
 var NoflandSpine = {
     jsPath: document.scripts[document.scripts.length-1].src.substring(0,document.scripts[document.scripts.length-1].src.lastIndexOf("/")+1),
-    fairys: undefined,
+    skels: undefined,
     canvas: undefined,
     gl: undefined,
     shader: undefined,
@@ -13,6 +13,7 @@ var NoflandSpine = {
     shapes: undefined,
     lastFrameTime: undefined,
     skeletons: {},
+    activeClassify: undefined,
     activeSkeleton: undefined,
     init: () => {
         // Setup canvas and WebGL context. We pass alpha: false to canvas.getContext() so we don't use premultiplied alpha when
@@ -48,8 +49,8 @@ var NoflandSpine = {
         // Wait until the AssetManager has loaded all resources, then load the skeletons.
         if (NoflandSpine.assetManager.isLoadingComplete()) {
             if (!NoflandSpine.skeletons[NoflandSpine.activeSkeleton]) {
-                var fairy = NoflandSpine.fairys[NoflandSpine.activeSkeleton];
-                NoflandSpine.skeletons[NoflandSpine.activeSkeleton] = NoflandSpine.loadSkeleton(fairy, "idle", true, "default");
+                var skel = NoflandSpine.skels[NoflandSpine.activeSkeleton];
+                NoflandSpine.skeletons[NoflandSpine.activeSkeleton] = NoflandSpine.loadSkeleton(skel, "idle", true, "default");
             }
             NoflandSpine.setupUI();
             NoflandSpine.lastFrameTime = Date.now() / 1000;
@@ -59,25 +60,25 @@ var NoflandSpine = {
             requestAnimationFrame(NoflandSpine.load);
         }
     },
-    loadSkeleton: (fairy, initialAnimation, premultipliedAlpha, skin) => {
+    loadSkeleton: (skel, initialAnimation, premultipliedAlpha, skin) => {
         if (skin === undefined) skin = "default";
 
         // Load the texture atlas using name.atlas from the AssetManager.
-        var atlas = NoflandSpine.assetManager.get(NoflandSpine.jsPath+`skels/${NoflandSpine.activeSkeleton}/0.atlas`);
+        var atlas = NoflandSpine.assetManager.get(NoflandSpine.jsPath+`skels/${NoflandSpine.activeClassify}/${NoflandSpine.activeSkeleton}/0.atlas`);
 
         // Create a AtlasAttachmentLoader that resolves region, mesh, boundingbox and path attachments
         var atlasLoader = new spine.AtlasAttachmentLoader(atlas);
 
-        if (fairy.type === "binary") {
+        if (skel.type === "binary") {
             // Create a SkeletonBinary instance for parsing the .skel file.
             var skeletonSource = new spine.SkeletonBinary(atlasLoader);
-        } else if (fairy.type === "text") {
+        } else if (skel.type === "text") {
             // Create a SkeletonBinary instance for parsing the .json file.
             var skeletonSource = new spine.SkeletonJson(atlasLoader);
         }
         // Set the scale to apply during parsing, parse the file, and create a new skeleton.
         skeletonSource.scale = 1;
-        var skeletonData = skeletonSource.readSkeletonData(NoflandSpine.assetManager.get(NoflandSpine.jsPath+`skels/${NoflandSpine.activeSkeleton}/0.${fairy.ext}`));
+        var skeletonData = skeletonSource.readSkeletonData(NoflandSpine.assetManager.get(NoflandSpine.jsPath+`skels/${NoflandSpine.activeClassify}/${NoflandSpine.activeSkeleton}/0.${skel.ext}`));
         var skeleton = new spine.Skeleton(skeletonData);
         skeleton.setSkinByName(skin);
         var bounds = NoflandSpine.calculateSetupPoseBounds(skeleton);
@@ -237,27 +238,27 @@ var NoflandSpine = {
         NoflandSpine.mvp.ortho2d(centerX - width / 2, centerY - height / 2, width, height);
         NoflandSpine.gl.viewport(0, 0, NoflandSpine.canvas.width, NoflandSpine.canvas.height);
     },
-    create: (fairyName) => {
+    create: (skelName) => {
         var target;
-        $.get(NoflandSpine.jsPath+'fairys.json', dataType="json", success=(data) => {
-            NoflandSpine.fairys = data;
+        $.get(NoflandSpine.jsPath+'skels.json', dataType="json", success=(data) => {
+            NoflandSpine.skels = data;
             var skeletonList = $("#skeletonList");
 
             var sorted = [];
             var sortmaps = {};
-            if (fairyName) { // 限定
-                for (var id in NoflandSpine.fairys) {
-                    var fairy = NoflandSpine.fairys[id];
-                    if (fairy.name.split(".")[1] === fairyName){
-                        sorted.push(fairy.name);
-                        sortmaps[fairy.name] = id;
+            if (skelName) { // 限定
+                for (var id in NoflandSpine.skels) {
+                    var skel = NoflandSpine.skels[id];
+                    if (skel.name.endsWith('.'+skelName)){
+                        sorted.push(skel.name);
+                        sortmaps[skel.name] = id;
                     }
                 }
             } else { // 全部
-                for (var id in NoflandSpine.fairys) {
-                    var fairy = NoflandSpine.fairys[id];
-                    sorted.push(fairy.name);
-                    sortmaps[fairy.name] = id;
+                for (var id in NoflandSpine.skels) {
+                    var skel = NoflandSpine.skels[id];
+                    sorted.push(skel.name);
+                    sortmaps[skel.name] = id;
                 }
             }
             sorted.sort(new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'}).compare);
@@ -275,12 +276,13 @@ var NoflandSpine = {
                 // Tell AssetManager to load the resources for each skeleton, including the exported .skel file, the .atlas file and the .png
                 // file for the atlas. We then wait until all resources are loaded in the load() method.
                 if (!NoflandSpine.skeletons[NoflandSpine.activeSkeleton]) {
-                    var fairy = NoflandSpine.fairys[NoflandSpine.activeSkeleton];
-                    if (fairy.type === "binary")
-                        NoflandSpine.assetManager.loadBinary(NoflandSpine.jsPath+`skels/${NoflandSpine.activeSkeleton}/0.${fairy.ext}`);
-                    else if (fairy.type === "text")
-                        NoflandSpine.assetManager.loadText(NoflandSpine.jsPath+`skels/${NoflandSpine.activeSkeleton}/0.${fairy.ext}`);
-                    NoflandSpine.assetManager.loadTextureAtlas(NoflandSpine.jsPath+`skels/${NoflandSpine.activeSkeleton}/0.atlas`);
+                    var skel = NoflandSpine.skels[NoflandSpine.activeSkeleton];
+                    NoflandSpine.activeClassify = skel.classify;
+                    if (skel.type === "binary")
+                        NoflandSpine.assetManager.loadBinary(NoflandSpine.jsPath+`skels/${NoflandSpine.activeClassify}/${NoflandSpine.activeSkeleton}/0.${skel.ext}`);
+                    else if (skel.type === "text")
+                        NoflandSpine.assetManager.loadText(NoflandSpine.jsPath+`skels/${NoflandSpine.activeClassify}/${NoflandSpine.activeSkeleton}/0.${skel.ext}`);
+                    NoflandSpine.assetManager.loadTextureAtlas(NoflandSpine.jsPath+`skels/${NoflandSpine.activeClassify}/${NoflandSpine.activeSkeleton}/0.atlas`);
                 }
                 requestAnimationFrame(NoflandSpine.load);
             })
