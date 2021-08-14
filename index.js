@@ -249,7 +249,7 @@ var NoflandSpine = {
             if (skelName) { // 限定
                 for (var id in NoflandSpine.skels) {
                     var skel = NoflandSpine.skels[id];
-                    if (skel.name.endsWith('.'+skelName)){
+                    if (skel.alias === skelName){
                         sorted.push(skel.name);
                         sortmaps[skel.name] = id;
                     }
