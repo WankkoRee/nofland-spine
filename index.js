@@ -240,7 +240,7 @@ var NoflandSpine = {
     },
     create: (skelName) => {
         var target;
-        $.get(NoflandSpine.jsPath+'skels.json', dataType="json", success=(data) => {
+        $.get(NoflandSpine.jsPath+'skels.json', (data) => {
             NoflandSpine.skels = data;
             var skeletonList = $("#skeletonList");
 
@@ -285,9 +285,9 @@ var NoflandSpine = {
                     NoflandSpine.assetManager.loadTextureAtlas(NoflandSpine.jsPath+`skels/${NoflandSpine.activeClassify}/${NoflandSpine.activeSkeleton}/0.atlas`);
                 }
                 requestAnimationFrame(NoflandSpine.load);
-            })
+            });
             NoflandSpine.init();
             skeletonList.change();
-        });
+        }, "json");
     }
 }
