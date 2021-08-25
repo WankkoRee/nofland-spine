@@ -54,7 +54,7 @@ var NoflandSpine = {
             }
             NoflandSpine.setupUI();
             NoflandSpine.lastFrameTime = Date.now() / 1000;
-            $("#console select,input").prop("disabled", false);
+            $("#console select, #console input").prop("disabled", false);
             requestAnimationFrame(NoflandSpine.render); // Loading is done, call render every frame.
         } else {
             requestAnimationFrame(NoflandSpine.load);
@@ -271,7 +271,7 @@ var NoflandSpine = {
             }
 
             skeletonList.change(() => {
-                $("#console select,input").prop("disabled", true);
+                $("#console select, #console input").prop("disabled", true);
                 NoflandSpine.activeSkeleton = skeletonList.val();
                 // Tell AssetManager to load the resources for each skeleton, including the exported .skel file, the .atlas file and the .png
                 // file for the atlas. We then wait until all resources are loaded in the load() method.
