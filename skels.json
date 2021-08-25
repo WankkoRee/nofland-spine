@@ -127,7 +127,7 @@
   "100127": {"name": "126.希瓦", "alias": "希瓦", "classify": "fairy", "type": "binary", "ext": "skel"},
   "100128": {"name": "127.姜尚", "alias": "姜尚", "classify": "fairy", "type": "binary", "ext": "skel"},
   "100129": {"name": "128.姜尚", "alias": "姜尚", "classify": "fairy", "type": "binary", "ext": "skel"},
-  "100136": {"name": "129.乔尼亚斯", "alias": "乔尼亚斯", "type": "text", "ext": "json"},
+  "100136": {"name": "129.乔尼亚斯", "alias": "乔尼亚斯", "classify": "fairy", "type": "text", "ext": "json"},
   "100137": {"name": "130.乔尼亚斯", "alias": "乔尼亚斯", "classify": "fairy", "type": "binary", "ext": "skel"},
   "100138": {"name": "131.烛", "alias": "烛", "classify": "fairy", "type": "binary", "ext": "skel"},
   "100139": {"name": "132.烛", "alias": "烛", "classify": "fairy", "type": "binary", "ext": "skel"},
