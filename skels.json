@@ -155,6 +155,14 @@
   "100167": {"name": "154.柯尔特", "alias": "柯尔特", "classify": "fairy", "type": "binary", "ext": "skel"},
   "100168": {"name": "155.猩仔", "alias": "猩仔", "classify": "fairy", "type": "binary", "ext": "skel"},
   "100169": {"name": "156.猩仔", "alias": "猩仔", "classify": "fairy", "type": "binary", "ext": "skel"},
+  "100134": {"name": "157.珀耳塞拉", "alias": "珀耳塞拉", "classify": "fairy", "type": "binary", "ext": "skel"},
+  "100135": {"name": "158.珀耳塞拉", "alias": "珀耳塞拉", "classify": "fairy", "type": "binary", "ext": "skel"},
+  "100154": {"name": "159.昂塞", "alias": "昂塞", "classify": "fairy", "type": "binary", "ext": "skel"},
+  "100155": {"name": "160.昂塞", "alias": "昂塞", "classify": "fairy", "type": "binary", "ext": "skel"},
+  "100170": {"name": "161.塔兰图", "alias": "塔兰图", "classify": "fairy", "type": "binary", "ext": "skel"},
+  "100171": {"name": "162.塔兰图", "alias": "塔兰图", "classify": "fairy", "type": "binary", "ext": "skel"},
+  "100172": {"name": "163.阿尔戈", "alias": "阿尔戈", "classify": "fairy", "type": "binary", "ext": "skel"},
+  "100173": {"name": "164.阿尔戈", "alias": "阿尔戈", "classify": "fairy", "type": "binary", "ext": "skel"},
   "7000000": {"name": "露西姆", "alias": "露西姆", "classify": "npc", "type": "binary", "ext": "skel"},
   "7000002": {"name": "帕修姆", "alias": "帕修姆", "classify": "npc", "type": "binary", "ext": "skel"}
 }
